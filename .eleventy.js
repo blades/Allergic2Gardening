@@ -55,6 +55,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
+const searchFilter = require("./src/filters/searchFilter");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -67,6 +68,11 @@ module.exports = function (eleventyConfig) {
     selector:
       "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
     verbose: false,
+  });
+
+  eleventyConfig.addFilter("search", searchFilter);
+  eleventyConfig.addCollection("posts", collection => {
+    return [...collection.getFilteredByGlob("./posts/**/*.md")];
   });
 
   eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
