@@ -1,67 +1,59 @@
-# eleventy-high-performance-blog
+# Allergic to Gardening blog
 
-A starter repository for building a blog with the [Eleventy static site generator](https://www.11ty.dev/) implementing a wide range of performance best practices.
+Based on [eleventy-high-performance-blog](https://github.com/google/eleventy-high-performance-blog) and modified and tweaked to suit. Why? Because it's one of the few that hammer the accessibility side of things, and that's massively important to me.
 
 ![Screenshot showing that the site achieves 100 points on Lighthouse by default](https://cdn.glitch.com/db98564e-04da-47bf-a3d6-70803c3d0fe7%2FScreen%20Shot%202020-09-04%20at%2012.07.27.png?v=1599214260591)
 
-Based on the awesome [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog).
+## Notes for myself on building
 
-## Demo
-
-- [Netlify Demo](https://eleventy-high-performance-blog-sample.industrialempathy.com/)
-- [Original site this template was based on](https://www.industrialempathy.com/)
-
-## Getting Started
-
-### 1. Generate a new repository from this repository template
-
-Click the ["Use this template"](https://github.com/google/eleventy-high-performance-blog/generate) button. Alternatively you can clone this repo yourself and push your copy to your favorite git repository.
-
-### 2. Clone your new repository
+### 1. Clone the repository
 
 ```
-git clone https://github.com/YOUR_REPO
+git clone https://github.com/blades/Allergic2Gardening/
 ```
 
-### 3. Navigate to the directory
+### 2. Navigate to the directory
 
 ```
-cd my-blog-name
+cd Allergic2Gardening
 ```
 
-### 4. Install dependencies
+### 3. Install dependencies
 
 ```
 npm install
 ```
 
-### 5. Build, serve, watch and test
-
-```
-npm run watch
-```
-
-### 6. Build and test
+### 4. Build 
 
 ```
 npm run build
 ```
 
-## Customize
+## Customize to do
 
-- Search for "Update me" across files in your editor to find all the site specific things you should update.
 - Update the favicons in 'img/favicon/'.
-- Otherwise: Knock yourself out. This is a template repository.
 - For a simple color override, adjust these CSS variables at the top of `css/main.css`.
 
 ```css
 :root {
-  --primary: #e7bf60;
-  --primary-dark: #f9c412;
+  --primary: #7cc442;
+  --primary-dark: #4c7927;
 }
 ```
+- Update css font sizes because they're so damned big
+- Add search page link
+- Tidy up end of blog entry content
+
+## Added functionality
+
+- Search facility based on [elasticlunr](https://www.belter.io/eleventy-search/)
+- eleventy-plugin-embed-twitter
+- eleventy-plugin-embed-instagram
 
 ## Features
+
+The following is basically what's on the source that it was all based on.
 
 ### Performance outcomes
 
@@ -150,7 +142,3 @@ Generates a strong CSP for the base template.
 - Downloaded remote images, and generated sizes are cached in the local filesystem…
 - …and SHOULD be committed to git.
 - `.persistimages.sh` helps with this.
-
-## Disclaimer
-
-This is not an officially supported Google product, but rather [Malte's](https://twitter.com/cramforce) private best-effort open-source project.

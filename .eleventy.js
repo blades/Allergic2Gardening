@@ -56,6 +56,9 @@ const localImages = require("./third_party/eleventy-plugin-local-images/.elevent
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
 const searchFilter = require("./src/filters/searchFilter");
+const embedTwitter = require("eleventy-plugin-embed-twitter");
+const embedInstagram = require("eleventy-plugin-embed-instagram");
+
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -74,7 +77,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("posts", collection => {
     return [...collection.getFilteredByGlob("./posts/**/*.md")];
   });
-
+  eleventyConfig.addPlugin(embedInstagram);
+  eleventyConfig.addPlugin(embedTwitter);
   eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
   eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
   eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
