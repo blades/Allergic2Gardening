@@ -1,30 +1,29 @@
 {
-  "name": "eleventy-high-performance-blog",
-  "version": "5.0.2",
+  "name": "a2g",
+  "version": "1.0.0",
   "license": "MIT",
-  "description": "A starter repository for a blog web site using the Eleventy static site generator.",
+  "description": "",
   "scripts": {
-    "build": "npm run js-build && eleventy && npm run test",
-    "watch": "concurrently \"eleventy --serve\" \"npm run js-build-watch\" \"npm run test-watch\"",
+    "build": "npm run js-build && eleventy",
+    "watch": "concurrently \"eleventy --serve\" \"npm run js-build-watch\"",
     "serve": "eleventy --serve",
     "js-build": "rollup -c rollup.config.js",
     "js-build-watch": "rollup -c rollup.config.js -w",
-    "debug": "DEBUG=* eleventy && npm run test",
-    "test": "mocha test/test*.js",
-    "test-watch": "mocha test/test*.js --watch"
+    "debug": "DEBUG=* eleventy"
   },
   "pre-push": [
     "build"
   ],
   "pre-commit": [],
+  "author": "Allan Jones",
   "repository": {
     "type": "git",
-    "url": "git://github.com/11ty/eleventy-base-blog.git"
+    "url": "https://github.com/blades/Allergic2Gardening/"
   },
   "bugs": {
-    "url": "https://github.com/11ty/eleventy-base-blog/issues"
+    "url": "https://github.com/blades/Allergic2Gardening//issues"
   },
-  "homepage": "https://github.com/11ty/eleventy-base-blog#readme",
+  "homepage": "https://github.com/blades/Allergic2Gardening/#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-navigation": "^0.1.3",
