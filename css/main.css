@@ -1139,12 +1139,12 @@ dd + dt {
   border-top: 1px solid #91ce5f;
 }
 
-blockquote {
+blockquote, #taglist {
   border-left: 1px solid #91ce5f;
   padding: 0 1.5em;
   margin: 1.5em 0 1.5em 1.5em;
 }
-blockquote footer {
+blockquote footer, #taglist footer {
   background: none;
   display: block;
   color: #ccc;
@@ -1315,7 +1315,7 @@ dd + dt {
   border-top: 1px solid var(--primary);
 }
 
-blockquote {
+blockquote, #taglist {
   border-left: 1px solid var(--primary);
 }
 
