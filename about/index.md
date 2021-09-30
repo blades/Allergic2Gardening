@@ -1,10 +1,9 @@
 ---
 layout: layouts/base.njk
 title: About
-templateClass: tmpl-post
 eleventyNavigation:
   key: About
-  order: 3
+  order: 2
 ---
 
 I created this site because I have a garden and I hate gardening.
@@ -23,6 +22,6 @@ Plonk all of that together, and you're basically left with someone who'll be in 
 
 Despite that, I've still managed to make something of my garden that I'm proud of.  Sure, I'm entirely unlikely to win any awards, and I very much doubt I'll ever be invited to design a garden for a flower show or anything like that.  But that's not why I garden, and I expect that for most of you reading this you have your own reasons for approaching gardening despite your deep-seated loathing and resentment of the effortlessly green-fingered.
 
-So I thought that I'd write some of this stuff down, because I figure I can't really be the only one this unsuited to gardening.  And even if you're not like me, I think that some of the things I've failed at might either amuse you or serve as a learning experience for you.
+So I thought that I'd write some of this stuff down, because I figure I can't really be the only one this unsuited to gardening.  I may even throw in some tech stuff along the way because I am a professional geek and I like to tinker with tech.  And even if you're not like me, I think that some of the things I've failed at might either amuse you or serve as a learning experience for you. 
 
 If my purpose in life is only to serve as a warning to others, then at least it's still a purpose.

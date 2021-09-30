@@ -72,6 +72,7 @@ const purifyCss = async (rawContent, outputPath) => {
           extensions: ["html"],
         },
       ],*/
+      safelist: ['::-webkit-scrollbar-thumb'],
       fontFace: true,
       variables: true,
     });

@@ -1,0 +1,48 @@
+---
+title: Search
+layout: layouts/base.njk
+eleventyNavigation:
+  key: Search
+  order: 3
+---
+
+<form action="https://www.google.co.uk/search" method="get" id="search">
+  <p>
+    This site is indexed by Google, and they will help you find things.
+  </p>
+  <input type="hidden" name="q" id="q" value="site:http://allergictogardening.com" />
+  <p>
+    <label for="search-str">Search <small>(results displayed on Google's site)</small></label>
+    <input type="text" name="q" id="search-str" />
+  </p>
+  <p>
+    <button type="submit" class="submit">Search with Google</button>
+  </p>
+</form>
+
+<div class="search-ui invisible">
+  <p>
+    Type in the box below to find things.
+  </p>
+  <p>
+    <label for="searchField">Search</label>
+    <input type="search" placeholder="Search..." id="searchField" />
+  </p>
+  <ol id="searchResults"></ol>
+  <div id="noResultsFound" style="display: none">
+    <p>No results found.</p>
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="/js/search-min.js"></script>
+</div>
+
+<h2>Tagged posts</h2>
+<p>
+  If you are struggling to find the things you are looking for, you might also find them by exploring the tags.
+</p>
+<ul>
+  {% for tag in collections.tagList %}
+    {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+    <li><a href="{{ tagUrl | url }}" class="tag">{{ tag }}</a> ({{ collections[tag].length }})</li>
+  {% endfor %}
+</ul>

@@ -55,10 +55,8 @@ const markdownItAnchor = require("markdown-it-anchor");
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
-const searchFilter = require("./src/filters/searchFilter");
 const embedTwitter = require("eleventy-plugin-embed-twitter");
 const embedInstagram = require("eleventy-plugin-embed-instagram");
-
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -73,7 +71,9 @@ module.exports = function (eleventyConfig) {
     verbose: false,
   });
 
-  eleventyConfig.addFilter("search", searchFilter);
+  eleventyConfig.addFilter("squash", require("./_11ty/squash.js") );
+  eleventyConfig.addFilter("search", require("./_11ty/searchFilter"));
+
   eleventyConfig.addCollection("posts", collection => {
     return [...collection.getFilteredByGlob("./posts/**/*.md")];
   });

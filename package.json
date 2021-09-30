@@ -4,12 +4,14 @@
   "license": "MIT",
   "description": "",
   "scripts": {
-    "build": "npm run js-build && eleventy",
-    "watch": "concurrently \"eleventy --serve\" \"npm run js-build-watch\"",
+    "build": "npm run js-build && npm run sass && eleventy",
+    "watch": "concurrently \"eleventy --serve\" \"npm run js-build-watch\" \"npm run sass-watch\"",
     "serve": "eleventy --serve",
     "js-build": "rollup -c rollup.config.js",
     "js-build-watch": "rollup -c rollup.config.js -w",
-    "debug": "DEBUG=* eleventy"
+    "debug": "DEBUG=* eleventy",
+    "sass": "sass scss/main.scss css/main.css",
+    "sass-watch": "spn run sass -- --watch"
   },
   "pre-push": [
     "build"
@@ -37,6 +39,7 @@
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.2.5",
     "node-fetch": "^2.6.1",
+    "npm-run-all": "^4.1.5",
     "pre-commit": "^1.2.2",
     "pre-push": "^0.1.1",
     "rollup-plugin-terser": "^6.1.0",
@@ -61,12 +64,15 @@
     "jimp": "^0.16.1",
     "lru-cache": "^5.1.1",
     "mocha": "^8.1.3",
+    "normalize.css": "^8.0.1",
     "phin": "^3.5.0",
     "purge-from-html": "^1.0.3",
     "purgecss": "^4.0.3",
     "querystring": "^0.2.0",
     "rollup": "^2.23.0",
+    "sass": "^1.42.1",
     "sharp": "^0.29.0",
+    "shevy": "^2.1.0",
     "twitter": "^1.7.1"
   }
 }

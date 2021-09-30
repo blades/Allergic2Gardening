@@ -12,7 +12,7 @@
     {% if isdevelopment %}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     {% else %}
-    <link rel="icon" href="{{ '/img/favicon/favicon-192x192.png' | addHash }}" type="image/png">
+    <link rel="icon" href="{{ '/img/favicon/android-chrome-192x192.png' | addHash }}" type="image/png">
     {% endif %}
     <meta name="theme-color" content="#f9c412">
     <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
@@ -27,8 +27,9 @@
       <meta property="og:description" content="{{ desc | escape }}">
     {% endif %}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@{{ metadata.author.twitterHandle }}">
-    <meta name="twitter:creator" content="@{{ metadata.author.twitterHandle }}">
+    <meta name="twitter:site" content="@{{ metadata.author.twitter }}">
+    <meta name="twitter:creator" content="@{{ metadata.author.twitter }}">
+    <meta property="og:url" content="{{ absoluteUrl(metadata.url) }}">
     {% if image %}
       <meta property="og:image" content="{{ image | absoluteUrl(metadata.url) }}">
     {% endif %}
@@ -84,7 +85,6 @@
         {% block article %}
           {{ content | safe }}
         {% endblock %}
-
         {% if page.url and page.url.indexOf("/posts/") > -1 %}
           <p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
         {% endif %}
@@ -92,7 +92,12 @@
     </main>
 
     <footer>
-      <a href="/about/">{{ metadata.author.name }}</a>
+        <div class="solid-footer">
+          <div class="container">
+          {% block prefooter %}{% endblock %}
+          {% include "footer.njk" %}
+          </div>
+        </div>
     </footer>
 
     <!-- Current page: {{ page.url | url }} -->

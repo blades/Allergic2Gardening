@@ -1,6 +1,12 @@
 (function (window, document) {
     "use strict";
-  
+
+    var searchDefault = document.querySelector('#search');
+    var searchUI = document.querySelector('.search-ui');
+    
+    searchDefault.classList.toggle('invisible');
+    searchUI.classList.toggle('invisible');
+
     const search = (e) => {
       const results = window.searchIndex.search(e.target.value, {
         bool: "OR",
