@@ -33,7 +33,8 @@
     {% if image %}
       <meta property="og:image" content="{{ image | absoluteUrl(metadata.url) }}">
     {% endif %}
-
+    <meta property="og:type" content="website">
+    <meta property=fb:app_id content=648097382818690>
     <link rel="canonical" href="{{ metadata.url }}{{ canonicalUrl or page.url }}">
     <!-- This is a blog and so it SHOULD be safe and it is nice for the web
          to send referrers cross-origin.
@@ -86,7 +87,7 @@
           {{ content | safe }}
         {% endblock %}
         {% if page.url and page.url.indexOf("/posts/") > -1 %}
-          <p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
+          <p><i>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></i></p>
         {% endif %}
       </article>
     </main>

@@ -249,7 +249,12 @@ blockquote, #taglist {
     font-size: 90%;
     text-align: start;
   }
+}
 
+#taglist
+{
+  border-right: 1px solid $primary;
+  margin: bs(1);
 }
 
 img {

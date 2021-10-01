@@ -1153,6 +1153,11 @@ blockquote footer, #taglist footer {
   text-align: start;
 }
 
+#taglist {
+  border-right: 1px solid #91ce5f;
+  margin: 1.5em;
+}
+
 img {
   height: auto;
   margin: 0 auto;
@@ -1317,6 +1322,7 @@ dd + dt {
 
 blockquote, #taglist {
   border-left: 1px solid var(--primary);
+  border-right: 1px solid var(--primary);
 }
 
 mark {
@@ -1337,6 +1343,17 @@ a {
 
 .centre {
   text-align: center;
+}
+
+@media (min-width: 600px) {
+  body {
+    background-image: url(/img/border.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-attachment: fixed;
+    background-size: contain;
+    background-blend-mode: soft-light;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

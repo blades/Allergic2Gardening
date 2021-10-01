@@ -28,6 +28,7 @@ dd + dt {
 
 blockquote, #taglist {
   border-left: 1px solid var(--primary);
+  border-right: 1px solid var(--primary);
 }
 
 mark {
@@ -48,4 +49,16 @@ a {
 
 .centre {
   text-align: center;
+}
+
+@include for-tablet-up {
+  body
+  {
+    background-image: url(/img/border.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-attachment: fixed;
+    background-size: contain;
+    background-blend-mode: soft-light;
+  }
 }
