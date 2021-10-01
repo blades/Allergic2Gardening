@@ -1139,12 +1139,12 @@ dd + dt {
   border-top: 1px solid #91ce5f;
 }
 
-blockquote, #taglist {
+blockquote, .taglist {
   border-left: 1px solid #91ce5f;
   padding: 0 1.5em;
   margin: 1.5em 0 1.5em 1.5em;
 }
-blockquote footer, #taglist footer {
+blockquote footer, .taglist footer {
   background: none;
   display: block;
   color: #ccc;
@@ -1153,7 +1153,7 @@ blockquote footer, #taglist footer {
   text-align: start;
 }
 
-#taglist {
+.taglist {
   border-right: 1px solid #91ce5f;
   margin: 1.5em;
 }
@@ -1320,7 +1320,7 @@ dd + dt {
   border-top: 1px solid var(--primary);
 }
 
-blockquote, #taglist {
+blockquote, .taglist {
   border-left: 1px solid var(--primary);
   border-right: 1px solid var(--primary);
 }
@@ -1347,13 +1347,31 @@ a {
 
 @media (min-width: 600px) {
   body {
-    background-image: url(/img/border.png);
     background-repeat: no-repeat;
     background-position: top left;
     background-attachment: fixed;
     background-size: contain;
     background-blend-mode: soft-light;
   }
+
+  body.winter {
+    background-image: url(/img/border-winter.png);
+  }
+
+  body.spring {
+    background-image: url(/img/border-spring.png);
+  }
+
+  body.summer {
+    background-image: url(/img/border-summer.png);
+  }
+
+  body.autumn {
+    background-image: url(/img/border-autumn.png);
+  }
+}
+.external-link {
+  height: 0.8em;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,13 @@
+<h3>
+    {% if post.data.externalurl %}
+    <a href="{{ post.data.externalurl }}">{{ post.data.title }}</a><img src="/img/external-link-icon-green.svg" class="external-link" alt="Read this post on the site on which it was posted.">
+    {% else %}
+    <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+    {% endif %}   
+</h3>
+<time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+<p>[{% for tag in post.data.tags %}
+    {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+        <a href="{{ tagUrl | url }}" class="post-tag">#{{ tag }}</a>{% if not loop.last %},{% endif %}
+    {% endfor %}]
+</p>

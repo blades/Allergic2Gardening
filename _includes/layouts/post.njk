@@ -11,7 +11,7 @@ templateClass: tmpl-post
    <aside>
      {{ wPerMinute | round }} min read.
    </aside>
-   <div id="taglist">
+   <div class="taglist">
       {% for tag in tags %}
         {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
         <a href="{{ tagUrl | url }}" class="post-tag">#{{ tag }}</a>{% if not loop.last %},{% endif %}

@@ -4,7 +4,7 @@ layout: layouts/home.njk
 ---
 <h1>Tags</h1>
 
-<div id="taglist">
+<div class="taglist">
   {% for tag in collections.tagList %}
     {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
     <a href="{{ tagUrl | url }}" class="post-tag">#{{ tag }}</a>{% if not loop.last %},{% endif %}

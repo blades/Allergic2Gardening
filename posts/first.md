@@ -12,6 +12,8 @@ I've never liked being out in the garden that I can recall. Maybe when I was ver
 
 At the basic level, it's mild headaches, runny noses, and sneezing.  If it gets worse, then it'll hit your eyes - itchy, streaming eyes at first but then they go all puffy and sore and red and you can't see any more.  Yeah, they gave me a bunch of drugs to manage them (beconase inhalers, triludan - stuff that was later deemed unsafe for use in children just to add a little extra to things) but there's only so much they can do before they basically give up.  The eye drops were the thing I remember detesting the most - stinging little dollops of pain, but at least it meant I could see again for a while.
 
+<!--more-->
+
 For me, those long, hot summers people wax rhapsodic about were basically the equivalent of having a dose of flu. My only respite was in winter when the pollen didn't attack me or during torrential rain, so that quickly became my favourite season and my favourite weather.  I never really learned to love the garden, or the outside in general, and I basically lived with my beconase inhaler within reach at all times.
 
 My dad was out in the garden quite a bit - digging holes, planting stuff, and forever mowing the lawn. He has hay fever as well, but I don't remember it bothering him as much. It's fair to say that as I grew older, the symptoms got milder (and I learned to avoid gardens as much as I could and to wear sunglasses a lot more often) so maybe it was just because he was older.

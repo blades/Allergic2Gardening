@@ -71,8 +71,10 @@ module.exports = function (eleventyConfig) {
     verbose: false,
   });
 
+  eleventyConfig.addFilter("section", require("./_11ty/section.js") );
   eleventyConfig.addFilter("squash", require("./_11ty/squash.js") );
   eleventyConfig.addFilter("search", require("./_11ty/searchFilter"));
+  eleventyConfig.addFilter("season", require("./_11ty/season.js"));
 
   eleventyConfig.addCollection("posts", collection => {
     return [...collection.getFilteredByGlob("./posts/**/*.md")];
@@ -83,7 +85,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
   eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
   eleventyConfig.addPlugin(require("./_11ty/apply-csp.js"));
-  eleventyConfig.setDataDeepMerge(true);
+    eleventyConfig.setDataDeepMerge(true);
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
   eleventyConfig.addNunjucksAsyncFilter("addHash", function (
     absolutePath,
@@ -150,6 +152,8 @@ module.exports = function (eleventyConfig) {
       "dd LLL yyyy"
     );
   });
+
+
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {

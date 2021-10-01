@@ -1,8 +1,8 @@
-<ul>
-{% for post in postslist | reverse %}
-  <li>
-    <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-    <time  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-  </li>
-{% endfor %}
-</ul>
+
+  {% for post in postslist | reverse %}
+    {% if loop.index < 4 %}
+      {% include 'post-teaser.njk' %}
+    {% else %}
+      {% include 'post-condensed.njk' %}
+    {% endif %}
+  {% endfor %}
