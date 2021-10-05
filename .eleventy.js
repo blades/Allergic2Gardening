@@ -84,8 +84,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
   eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
   eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
-  eleventyConfig.addPlugin(require("./_11ty/apply-csp.js"));
-    eleventyConfig.setDataDeepMerge(true);
+  eleventyConfig.setDataDeepMerge(true);
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
   eleventyConfig.addNunjucksAsyncFilter("addHash", function (
     absolutePath,
@@ -186,7 +185,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("_headers");
 
-  // We need to rebuild upon JS change to update the CSP.
+  // We need to rebuild upon JS change 
   eleventyConfig.addWatchTarget("./js/");
   // We need to rebuild on CSS change to inline it.
   eleventyConfig.addWatchTarget("./css/");

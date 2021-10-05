@@ -25,17 +25,6 @@
 // sizes
 $em: 18px;
 
-html { font-family: 'Inter', sans-serif; }
-@supports (font-variation-settings: normal) {
-  html { font-family: 'Inter var', sans-serif; }
-}
- 
-
-// fonts
-$serif: 'Inter', sans-serif;//'Century Schoolbook', serif;
-$sans-serif: 'Inter', sans-serif; //'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
-$monospace: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-
 // colors
 $primary: #91ce5f;
 $site-bg: rgb(24, 24, 24);
@@ -53,9 +42,6 @@ $gray: #595959;
 
 // responsive
 $mobile-width: 767px;
-
-
-
 
 @mixin for-tablet-up {
   @media (min-width: 600px) {

@@ -88,7 +88,7 @@ The following is basically what's on the source that it was all based on.
 #### Miscellaneous
 
 - Immutable URLs for JS.
-- Sets immutable caching headers for images, fonts, and JS (CSS is inlined). Currently implements for Netlify `_headers` file.
+- Sets immutable caching headers for images, fonts, and JS (CSS is inlined).
 - Minifies HTML and optimizes it for compression. Uses [html-minifier](https://www.npmjs.com/package/html-minifier) with aggressive options.
 - Uses [rollup](https://rollupjs.org/) to bundle JS and minifies it with [terser](https://terser.org/).
 - Prefetches same-origin navigations when a navigation is likely.
@@ -98,21 +98,6 @@ The following is basically what's on the source that it was all based on.
 
 - Serves fonts from same origin.
 - Makes fonts `display:optional`.
-
-#### Analytics
-
-- Supports locally serving Google Analytics's JS and proxying it's hit requests to a Netlify proxy (other proxies could be easily added).
-- Supports sending [Core Web Vitals](https://web.dev/vitals/) metrics to Google Analytics as [events](https://github.com/GoogleChrome/web-vitals#send-the-results-to-google-analytics).
-- Support for noscript hit requests.
-- Avoids blocking onload on analytics requests.
-- To turn this on, specify `googleAnalyticsId` in `metadata.json`. (Note, that this is not compatible with the not-yet-commonly used version 4 of Google Analytics.)
-
-### DX features
-
-- Uses 🚨 as favicon during local development.
-- Supports a range of default tests.
-- Runs build and tests on `git push`.
-- Sourcemap generated for JS.
 
 ### SEO & Social
 
@@ -127,15 +112,6 @@ The following is basically what's on the source that it was all based on.
 - Read time estimate.
 - Animated scroll progress bar…
 - …with an optimized implementation that should never cause a layout.
-
-### Security
-
-Generates a strong CSP for the base template.
-
-- Default-src is self.
-- Disallows plugins.
-- Generates hash based CSP for the JS used on the site.
-- To extend the CSP with new rules, see [CSP.js](https://github.com/google/eleventy-high-performance-blog/blob/main/_data/csp.js#L22)
 
 ### Build performance
 

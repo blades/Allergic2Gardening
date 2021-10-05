@@ -24,6 +24,20 @@ templateClass: tmpl-post
 {% block article %}
 {{ content | safe }}
 
+<hr />
+<p><i>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></i></p>
+
+{% set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+{% set nextPost = collections.posts | getNextCollectionItem(page) %}
+{% if previousPost or nextPost %}
+<p>
+{% if previousPost %}Last Post: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}
+{% if previousPost and nextPost %}<br />{% endif %}
+{% if nextPost %}Next Post: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}
+</p>
+<hr />
+{% endif %}
+
 <p>
   How about <a href="{{ shareUrl | safe }}" on-click="share">sharing</a> this article on your favorite social media network if you've found it interesting? For feedback, please get in touch via
   <a href="https://twitter.com/{{ metadata.author.twitter }}" target="_blank" rel="noopener">Twitter</a> or <a href="https://instagram.com/{{ metadata.author.instagram }}" target="_blank" rel="noopener">Instagram</a>

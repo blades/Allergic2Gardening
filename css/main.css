@@ -1,4 +1,18 @@
-@import url(https://rsms.me/inter/inter.css);
+@font-face {
+  font-family: "Inter";
+  font-weight: 100 900;
+  font-style: oblique 0deg 10deg;
+  src: url("/fonts/Inter.var.woff2") format("woff2");
+}
+html {
+  font-family: "Inter", sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter", sans-serif;
+  }
+}
 /*
   Make image rasterization lazy. This means that e.g. the cost of the
   blurry placeholder is never paid if images load before entering
@@ -428,24 +442,6 @@ template {
   display: none;
 }
 
-html {
-  font-family: "Inter", sans-serif;
-}
-
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: "Inter var", sans-serif;
-  }
-}
-html {
-  font-family: "Inter", sans-serif;
-}
-
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: "Inter var", sans-serif;
-  }
-}
 h1 {
   font-size: 3em;
   line-height: 1.25;
@@ -648,15 +644,6 @@ pre {
     margin-bottom: 1.632rem;
   }
 }
-html {
-  font-family: "Inter", sans-serif;
-}
-
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: "Inter var", sans-serif;
-  }
-}
 th {
   font-weight: 600;
 }
@@ -679,15 +666,6 @@ table {
   overflow-x: auto;
 }
 
-html {
-  font-family: "Inter", sans-serif;
-}
-
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: "Inter var", sans-serif;
-  }
-}
 pre, code {
   overflow-x: auto;
 }
@@ -719,15 +697,6 @@ mark {
   padding: 0 0.3em;
 }
 
-html {
-  font-family: "Inter", sans-serif;
-}
-
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: "Inter var", sans-serif;
-  }
-}
 h1,
 h2,
 h3,
@@ -749,15 +718,6 @@ h6 {
   font-style: italic;
 }
 
-html {
-  font-family: "Inter", sans-serif;
-}
-
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: "Inter var", sans-serif;
-  }
-}
 a {
   color: #91ce5f;
   text-decoration: none;
@@ -810,15 +770,6 @@ dt {
 
   x:-moz-any-link {
     display: table-cell;
-  }
-}
-html {
-  font-family: "Inter", sans-serif;
-}
-
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: "Inter var", sans-serif;
   }
 }
 form {
