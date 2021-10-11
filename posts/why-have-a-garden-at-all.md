@@ -17,7 +17,8 @@ Well, I kinda had a garden like that in the first house I bought.  It was flagge
 
 Well, no. It was a dull, bland space and neither of us particularly enjoyed being out in it.  There was a shed that was too small to store useful things like chairs or a barbecue, and with it being our first house we were too busy trying to sort out the interior. We didn't have any kids, either, so aside from feeding the goldfish there wasn't much to do - and thanks to a hot summer and an algal bloom, most of the fish died and the sole survivor was 'rescued' and brought inside into a fish tank. Yeah, I know now that was a big mistake, and there'll no doubt be a post elaborating on that in the future, too, but I'm trying to keep this one focused on the point of having a garden. We didn't even bother with pots.
 
-![A garden so bland that the only photo I can find of it was taken through a broken window so the broken glass added interest](/img/posts/garden_through_broken_glass.jpg)
+![Blurry image of a garden trough broken glass](/img/posts/garden_through_broken_glass.jpg)
+*A garden so bland that the only photo I can find of it was taken through a broken window so the broken glass added interest*
 
 In the next house, we had two daughters arrive shortly after moving in, and this garden had a bit more going on in it already - planted borders, split levels, all sorts of things. It needed a bit of work as it had been left empty for a very long time after she'd passed away, both inside and outside the house.  We tried our best, but we mainly focused our efforts inside the house, and with the pair of us working and with two small children to look after, we didn't have a lot of time to look after it. 
 
@@ -28,6 +29,7 @@ I mean, I still didn't want to sit out in the garden, but my wife did, and the k
 It was about this time that we sold up, and moved over to Formby. We stayed in a rental house for a little over a year, and it had a garden that was in need of tidying up so we started doing that. We left some long grass for the wildlife, brought some pots with us and added a few more, and generally tidied things up. We didn't know how long we'd be there, but I started to think a little bit more about gardens and what they were for.  Charlie and the Rich brothers had opened my eyes in terms of garden design and planning, and in terms of planting schemes, so I went and read everything the local library had to offer.  We watched more gardening shows like [Gardener's World](https://www.imdb.com/title/tt0260618/) and [Love Your Garden](https://www.imdb.com/title/tt3002170) and [Big Dreams, Small Spaces](https://www.imdb.com/title/tt8006786) and I started asking questions.
 
 ![Pots in the rental garden](/img/posts/rental_pots.jpg)
+*Our pot collection in the rental garden*
 
 I asked the whole family what it was that they wanted in the garden. I had them think about what they wanted to use it for. I figured we'd all want something, so let's try to get it in there. My wife wanted a place to sit outside, read a book, drink a glass of wine. The kids wanted various things to play on - trampoline, slide, gym bars - or somewhere they could sit. They needed space to play, and run around. They were all interested in growing some food to eat. We wanted to be able to invite people around to sit outside. And me? Well, I liked barbecues and wanted one of those. The garden wasn't really my thing, but I do like food and you can't beat a barbecue.
 
@@ -37,7 +39,8 @@ We were still renting at this point, so it was all just ideas. But we could talk
 
 And then, we bought our current home, and that had a garden. It had been left empty for a while, but it had a decent selection of plants and shrubs and trees in there already - although the lawn was completely shot. It didn't have any of the features we wanted, the borders were half-buried or collapsed or overgrown, and it had a ton of stuff in there that we didn't like and didn't want.  It was time to stop theorizing and to start putting in the work to figure out how to turn what we had into what we wanted.
 
-![The starting point for it all](/img/posts/blank_slate.jpg)
+![How the garden looked when we moved in](/img/posts/blank_slate.jpg)
+*The starting point for the garden - how it looked when we moved in*
 
 These days I still don't think that the garden is for me, and I certainly don't think of myself as a gardener. I garden for my family and I garden for wildlife. I do the work to create a space where my family and I can _do_ things, not just to have a pretty space for the sake of having it.  The really, really strange thing for me, though, is that I've somehow found myself enjoying the whole thing. Sure, weeding and deadheading is a chore and there's been a lot of work involved and there's still loads more to do.  But when I see the dragonflies and damselflies resting on the plants I've planted, and I see the tiny frogs hopping around the borders, and I see butterflies and bees and hoverflies and even a hummingbird hawk-moth, and I see the cuttings or seedlings I've grown flourishing... well, then I get a real feeling of wonder that this  useless git has managed to do something good.
 

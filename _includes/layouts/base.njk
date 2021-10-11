@@ -25,7 +25,10 @@
     <meta property="og:url" content="{{ metadata.url }}">
     {% if image %}
       <meta property="og:image" content="{{ image | absoluteUrl(metadata.url) }}">
+    {% else %}
+      <meta property="og:image" content="{{ metadata.image | absoluteUrl(metadata.url) }}">
     {% endif %}
+
     <meta property="og:type" content="website">
     <meta property=fb:app_id content=648097382818690>
     <link rel="canonical" href="{{ metadata.url }}{{ canonicalUrl or page.url }}">
