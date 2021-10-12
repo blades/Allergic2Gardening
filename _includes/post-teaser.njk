@@ -5,8 +5,9 @@
     <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
     {% endif %}   
 </h3>
-<time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-<p>[{% for tag in post.data.tags %}
+<p>
+    <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+    [{% for tag in post.data.tags %}
     {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
         <a href="{{ tagUrl | url }}" class="post-tag">#{{ tag }}</a>{% if not loop.last %},{% endif %}
     {% endfor %}]

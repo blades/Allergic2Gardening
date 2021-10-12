@@ -1,7 +1,7 @@
 ---
-title: Where do we begin? With a plan!
+title: Where do we begin?
 description: The first steps in the garden in our new house
-date: 2021-09-28
+date: 2021-10-12
 tags:
   - beginnings
 layout: layouts/post.njk
