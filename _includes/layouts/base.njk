@@ -35,7 +35,8 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="preconnect" href="/" crossorigin>
-    <link rel="preload" href="/fonts/Inter.var.woff2" as="font" type="font/woff2" crossorigin>
+    <!--link rel="preload" href="/fonts/Inter.var.woff2" as="font" type="font/woff2" crossorigin -->
+    <link rel="preload" href="/fonts/Glory-latin.woff2" as="font" type="font/woff2" crossorigin>
     <script async defer src="{{ "/js/min.js" | addHash }}"
       {% if webvitals %}data-cwv-src="{{ "/js/web-vitals.js" | addHash }}"{% endif %}>
     </script>
@@ -59,6 +60,8 @@
           {%- for entry in collections.all | eleventyNavigation %}
             <a href="{{ entry.url | url }}">{{ entry.title }}</a>
           {%- endfor %}
+          <a class="menu-icon" href="https://twitter.com/{{ metadata.author.twitter }}" target="_blank" rel="noopener"><img src="/img/twitter.svg" alt="twitter icon"/></a>
+          <a class="menu-icon" href="https://instagram.com/{{ metadata.author.instagram }}" target="_blank" rel="noopener"><img src="/img/instagram.svg" alt="instagram icon"/></a>
         </div>
         <div id="reading-progress" aria-hidden="true"></div>
       </nav>
