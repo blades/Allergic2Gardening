@@ -141,3 +141,16 @@ a {
   position: relative;
   top: 0.3em;
 }
+
+header nav a {
+  margin-left:0.5em;
+}
+
+header nav h1 {
+  position:relative;
+  top:0.3em;
+}
+
+header nav a:last-of-type {
+  margin-right: 0.5em;
+}
