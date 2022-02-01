@@ -13,10 +13,11 @@
     "sass": "sass scss/main.scss css/main.css",
     "sass-watch": "spn run sass -- --watch"
   },
-  "pre-push": [
-    "build"
-  ],
-  "pre-commit": [],
+  "husky": {
+    "hooks": {
+      "pre-commit": "build"
+    }
+  },
   "author": "Allan Jones",
   "repository": {
     "type": "git",
@@ -30,7 +31,7 @@
     "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-navigation": "^0.3.2",
     "@11ty/eleventy-plugin-rss": "^1.1.2",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.3",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "eleventy-plugin-local-images": "^0.4.1",
     "file-type": "^17.0.0",
     "fs-extra": "^10.0.0",
@@ -40,8 +41,7 @@
     "markdown-it-anchor": "^8.4.1",
     "node-fetch": "^3.1.0",
     "npm-run-all": "^4.1.5",
-    "pre-commit": "^1.2.2",
-    "pre-push": "^0.1.1",
+    "husky": "^7.0.4",
     "rollup-plugin-terser": "^7.0.2",
     "shorthash": "0.0.2"
   },
@@ -49,8 +49,8 @@
     "@ampproject/toolbox-optimizer": "^2.8.4",
     "any-shell-escape": "^0.1.1",
     "clean-css": "^5.2.2",
-    "concurrently": "^6.4.0",
-    "csso": "^4.2.0",
+    "concurrently": "^7.0.0",
+    "csso": "^5.0.2",
     "datauri": "^4.1.0",
     "debug": "^4.3.3",
     "elasticlunr": "^0.9.5",
@@ -63,7 +63,7 @@
     "image-size": "^1.0.0",
     "jimp": "^0.16.1",
     "lru-cache": "^6.0.0",
-    "mocha": "^9.1.3",
+    "mocha": "^9.2.0",
     "normalize.css": "^8.0.1",
     "phin": "^3.6.1",
     "purge-from-html": "^1.0.3",
