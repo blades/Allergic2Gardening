@@ -14,11 +14,6 @@
     "sass-watch": "spn run sass -- --watch",
     "prepare": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "build"
-    }
-  },
   "author": "Allan Jones",
   "repository": {
     "type": "git",
