@@ -11,7 +11,8 @@
     "js-build-watch": "rollup -c rollup.config.js -w",
     "debug": "DEBUG=* eleventy",
     "sass": "sass scss/main.scss css/main.css",
-    "sass-watch": "spn run sass -- --watch"
+    "sass-watch": "spn run sass -- --watch",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
