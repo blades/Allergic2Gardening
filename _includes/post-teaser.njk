@@ -1,6 +1,6 @@
 <h3>
     {% if post.data.externalurl %}
-    <a href="{{ post.data.externalurl | url }}" target="_blank">{{ post.data.title }}</a><img src="/img/external-link-icon-green.svg" class="external-link" alt="Read this post on the site on which it was posted.">
+    <a href="{{ post.data.externalurl | url }}" target="_blank" rel="noopener noreferrer">{{ post.data.title }}</a><img src="/img/external-link-icon-green.svg" class="external-link" alt="Read this post on the site on which it was posted.">
     {% else %}
     <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
     {% endif %}   
@@ -16,7 +16,7 @@
     {{ post.templateContent | section | safe }}
 </div>
 {% if item.data.externalurl %}
-    <a href="{{ post.data.externalurl | url }}" target="_blank">read more</a><img src="/img/external-link-icon.svg" class="external-link" alt="Read this post on the site on which it was posted.">
+    <a href="{{ post.data.externalurl | url }}" target="_blank" rel="noopener noreferrer">read more</a><img src="/img/external-link-icon.svg" class="external-link" alt="Read this post on the site on which it was posted.">
 {% else %}
     <a href="{{ post.url | url }}">read more</a>
 {% endif %}
