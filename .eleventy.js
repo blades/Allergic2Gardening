@@ -43,8 +43,11 @@
 const { DateTime } = require("luxon");
 const { promisify } = require("util");
 const fs = require("fs");
+const path = require("path");
 const hasha = require("hasha");
+const touch = require("touch");
 const readFile = promisify(fs.readFile);
+const readdir = promisify(fs.readdir);
 const stat = promisify(fs.stat);
 const execFile = promisify(require("child_process").execFile);
 const pluginRss = require("@11ty/eleventy-plugin-rss");
@@ -90,7 +93,7 @@ module.exports = function (eleventyConfig) {
     absolutePath,
     callback
   ) {
-    readFile(`_site${absolutePath}`, {
+    readFile(path.join(".", absolutePath), {
       encoding: "utf-8",
     })
       .then((content) => {
@@ -99,7 +102,11 @@ module.exports = function (eleventyConfig) {
       .then((hash) => {
         callback(null, `${absolutePath}?hash=${hash.substr(0, 10)}`);
       })
-      .catch((error) => callback(error));
+      .catch((error) => {
+        callback(
+          new Error(`Failed to addHash to '${absolutePath}': ${error}`)
+        );
+      });
   });
 
   async function lastModifiedDate(filename) {
