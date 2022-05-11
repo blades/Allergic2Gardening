@@ -901,7 +901,7 @@ input[type=submit],
 button[type=submit],
 button:not([disabled]) {
   background: #91ce5f;
-  color: #181818;
+  color: rgb(24, 24, 24);
 }
 input[type=submit]:hover,
 button[type=submit]:hover,
@@ -959,7 +959,7 @@ img {
 
 body {
   font-family: "Glory", sans-serif;
-  background: #181818;
+  background: rgb(24, 24, 24);
   color: #eee;
 }
 
@@ -1036,7 +1036,7 @@ header nav a {
   font-weight: 700;
   text-decoration: none;
   font-family: "Glory", sans-serif;
-  color: #181818;
+  color: rgb(24, 24, 24);
   margin-left: 1.5em;
 }
 header nav a:first-of-type {
