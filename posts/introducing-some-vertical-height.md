@@ -13,7 +13,7 @@ layout: layouts/post.njk
 
 In the last post, I hinted at vertical posts in the last photo, so - spoiler alert - that's what this post is going to talk about. But, first, let's talk about the importance of vertical height. If you take away anything from this post, I hope it'll be a slightly better understanding of the use of vertical height in general, not just in the garden.
 
-I mean, let's start with the layout of this blog. I'm a software developer, and I've worked with a lot of designers over the years, and one thing that they all go on about is the importance of /rhythm/ in any design. I learned that the details of how the font heights interact as you go up and down heading sizes is critical to having a clean look on a website. Making sure that the typography is pleasing comes down to having a rhythm and flow to the sizing and that includes everything from the height and width of the letters to the gaps in between letters, words, and paragraphs.
+I mean, let's start with the layout of this blog. I'm a software developer, and I've worked with a lot of designers over the years, and one thing that they all go on about is the importance of *rhythm* in any design. I learned that the details of how the font heights interact as you go up and down heading sizes is critical to having a clean look on a website. Making sure that the typography is pleasing comes down to having a rhythm and flow to the sizing and that includes everything from the height and width of the letters to the gaps in between letters, words, and paragraphs.
 
 <!--more-->
 
@@ -29,7 +29,7 @@ This sort of thing is a basic component of any design, though. You'll hear desig
 * Adding support for other structures
 * 'Borrowing' the surrounding landscape
 
-There's probably plenty more, too, but those are the ones I've certainly picked up. While it's useful to throw in an obelisk or a trellis to grow things vertically, doing that naturally draws your eyes up so it's important to take advantage of walls and fences. However, it's important not to overdo it - if you have trellis everywhere, then it stops being a feature and just becomes the background. That's where the rhythm element comes into play. It's like with music, where sometimes the gaps /between/ the notes are every bit as important as the notes themselves.
+There's probably plenty more, too, but those are the ones I've certainly picked up. While it's useful to throw in an obelisk or a trellis to grow things vertically, doing that naturally draws your eyes up so it's important to take advantage of walls and fences. However, it's important not to overdo it - if you have trellis everywhere, then it stops being a feature and just becomes the background. That's where the rhythm element comes into play. It's like with music, where sometimes the gaps *between* the notes are every bit as important as the notes themselves.
 
 In my case, coming from a typical washing-machine garden, all of the height in the garden was around the edges. Fences, trees, and shrubs were all around the edges of the garden, and while I added a pond that's a low feature which doesn't add any height. I was also conscious that I wanted to better zone the seating area and separate it from the other side of the garden. To do that would require some sort of visible structure, so I hit upon the idea of building some sort of pergola structure.
 
