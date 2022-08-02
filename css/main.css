@@ -152,10 +152,8 @@ header aside {
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 html {
-  line-height: 1.15;
-  /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /* Sections
@@ -183,12 +181,9 @@ h1 {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-  box-sizing: content-box;
-  /* 1 */
-  height: 0;
-  /* 1 */
-  overflow: visible;
-  /* 2 */
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
 }
 
 /**
@@ -196,10 +191,8 @@ hr {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 pre {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /* Text-level semantics
@@ -216,12 +209,9 @@ a {
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 abbr[title] {
-  border-bottom: none;
-  /* 1 */
-  text-decoration: underline;
-  /* 2 */
-  text-decoration: underline dotted;
-  /* 2 */
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -239,10 +229,8 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /**
@@ -292,14 +280,10 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  line-height: 1.15;
-  /* 1 */
-  margin: 0;
-  /* 2 */
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
 }
 
 /**
@@ -307,8 +291,7 @@ textarea {
  * 1. Show the overflow in Edge.
  */
 button,
-input {
-  /* 1 */
+input { /* 1 */
   overflow: visible;
 }
 
@@ -317,8 +300,7 @@ input {
  * 1. Remove the inheritance of text transform in Firefox.
  */
 button,
-select {
-  /* 1 */
+select { /* 1 */
   text-transform: none;
 }
 
@@ -367,18 +349,12 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
-  box-sizing: border-box;
-  /* 1 */
-  color: inherit;
-  /* 2 */
-  display: table;
-  /* 1 */
-  max-width: 100%;
-  /* 1 */
-  padding: 0;
-  /* 3 */
-  white-space: normal;
-  /* 1 */
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
 }
 
 /**
@@ -394,10 +370,8 @@ progress {
  */
 [type=checkbox],
 [type=radio] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
 }
 
 /**
@@ -413,10 +387,8 @@ progress {
  * 2. Correct the outline style in Safari.
  */
 [type=search] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  outline-offset: -2px;
-  /* 2 */
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
 }
 
 /**
@@ -431,10 +403,8 @@ progress {
  * 2. Change font properties to `inherit` in Safari.
  */
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  /* 1 */
-  font: inherit;
-  /* 2 */
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
 }
 
 /* Interactive
@@ -575,42 +545,35 @@ pre {
     line-height: 3.52rem;
     margin-bottom: 1.496rem;
   }
-
   h2 {
     font-size: 2.75rem;
     line-height: 3.52rem;
     margin-bottom: 1.496rem;
   }
-
   h3 {
     font-size: 2.2rem;
     line-height: 2.64rem;
     margin-bottom: 1.496rem;
   }
-
   h4 {
     font-size: 1.65rem;
     line-height: 1.76rem;
     margin-bottom: 1.496rem;
   }
-
   h5 {
     font-size: 1.375rem;
     line-height: 1.76rem;
     margin-bottom: 1.496rem;
   }
-
   h6 {
     font-size: 1.1rem;
     line-height: 1.76rem;
     margin-bottom: 1.496rem;
   }
-
   body {
     font-size: 1.1rem;
     line-height: 1.6;
   }
-
   p,
 ol,
 ul,
@@ -626,42 +589,35 @@ pre {
     line-height: 3.84rem;
     margin-bottom: 1.632rem;
   }
-
   h2 {
     font-size: 3rem;
     line-height: 3.84rem;
     margin-bottom: 1.632rem;
   }
-
   h3 {
     font-size: 2.4rem;
     line-height: 2.88rem;
     margin-bottom: 1.632rem;
   }
-
   h4 {
     font-size: 1.8rem;
     line-height: 1.92rem;
     margin-bottom: 1.632rem;
   }
-
   h5 {
     font-size: 1.5rem;
     line-height: 1.92rem;
     margin-bottom: 1.632rem;
   }
-
   h6 {
     font-size: 1.2rem;
     line-height: 1.92rem;
     margin-bottom: 1.632rem;
   }
-
   body {
     font-size: 1.2rem;
     line-height: 1.6;
   }
-
   p,
 ol,
 ul,
@@ -794,7 +750,6 @@ dt {
     flex-grow: 1;
     page-break-before: auto;
   }
-
   x:-moz-any-link {
     display: table-cell;
   }
@@ -1013,13 +968,10 @@ header p {
   margin-top: 0;
 }
 header nav {
-  position: fixed;
-  /* Set the navbar to fixed position */
-  top: 0;
-  /* Position the navbar at the top of the page */
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
   left: 0;
-  width: 100vw;
-  /* Full width */
+  width: 100vw; /* Full width */
   padding: 0.375em 1.5em;
   background: rgba(255, 255, 255, 0.9);
   font-weight: 200;
@@ -1340,19 +1292,15 @@ a {
     background-size: contain;
     background-blend-mode: soft-light;
   }
-
   body.winter {
     background-image: url(/img/border-winter.png);
   }
-
   body.spring {
     background-image: url(/img/border-spring.png);
   }
-
   body.summer {
     background-image: url(/img/border-summer.png);
   }
-
   body.autumn {
     background-image: url(/img/border-autumn.png);
   }
