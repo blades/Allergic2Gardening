@@ -1,9 +1,7 @@
 <!doctype html>
 <html lang="en"
     domain="{{ metadata.domain }}"
-    {% if googleanalytics %}
-    ga-id="{{ googleanalytics }}"
-    {% endif %}
+    ga-id="G-3TF6ZQCJ6L"
   >
   <head>
     <meta charset="utf-8">
@@ -40,16 +38,14 @@
     <script async defer src="{{ "/js/min.js" | addHash }}"
       {% if webvitals %}data-cwv-src="{{ "/js/web-vitals.js" | addHash }}"{% endif %}>
     </script>
-    {% if googleanalytics %}
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-3TF6ZQCJ6L"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '{{ googleanalytics }}');
-      </script>
-    {% endif %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3TF6ZQCJ6L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3TF6ZQCJ6L');
+    </script>
     <!-- css is inserted by optimize-html custom plugin -->
   </head>
   <body class="{{ now | season }}">

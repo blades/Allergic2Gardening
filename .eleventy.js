@@ -57,7 +57,7 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const localImages = require("eleventy-plugin-local-images");
 const CleanCSS = require("clean-css");
-const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
+const GA_ID = require("./_data/metadata.json").googleanalytics;
 const embedTwitter = require("eleventy-plugin-embed-twitter");
 const embedInstagram = require("eleventy-plugin-embed-instagram");
 

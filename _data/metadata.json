@@ -5,7 +5,7 @@
   "domain": "allergictogardening.com",
   "description": "I'm basically one of the people least suited to gardening at a biological level, but I've never let that stop me before and won't this time, either.",
   "genre": "https://schema.org/Blog",
-  "googleAnalyticsId": "G-3TF6ZQCJ6L",
+  "googleanalytics": "G-3TF6ZQCJ6L",
   "feed": {
     "subtitle": "Latest blog entries from the gardener who hates gardening at a biological level",
     "filename": "feed.xml",
