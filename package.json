@@ -57,6 +57,7 @@
     "hasha": "^5.2.2",
     "html-minifier": "^4.0.0",
     "image-size": "^1.0.0",
+    "jimp": "^0.22.8",
     "jimp-compact": "^0.16.1-2",
     "lru-cache": "^6.0.0",
     "mocha": "^9.2.0",
