@@ -29,6 +29,11 @@ First, we decide where we'll put our eyelets and we'll measure to make sure that
 ![Eyelet and screwdriver to torque](/img/posts/eyelet-and-screwdriver.jpg)
 *You can use a long-handled screwdriver to increase the torque when twisting the eyelets into the wood*
 
+Pass the cable through the eyelets in a nice pattern. You'll want to leave extra cable at either end so they can be secured. 
+
+![I went horizontal, then vertical](/img/posts/cable-pattern.jpg)
+*I went horizontally, then down and back across the other way*
+
 For the one at the top, we'll attach it directly like this:
 
 ![Step 1: slide the compression fitting onto the cable](/img/posts/cable-1.jpg)
@@ -46,12 +51,7 @@ Either direction is fine.
 
 Slide it tight and then crimp the hell out of it to secure it. Test it by giving it a really good pull to make sure it won't slide.
 
-With the top end secure, you can now pass the cable through the eyelets in a nice pattern. You'll want to leave extra cable at either end so they can be secured. 
-
-![I went horizontal, then vertical](/img/posts/cable-pattern.jpg)
-*I went horizontally, then down and back across the other way*
-
-Tighten the cable systematically all the way through each eyelet, keeping that tension up. At the bottom, I used a screw-tightening tensioner fitting instead of a direct fastening although that's a nicety. I liked the idea of being able to tighten it up once it had settled, though. If you do, definitely make sure to loosen that to the maximum extent before you crimp the cable through, though. Only an idiot would do something like that. Luckily, I only needed once practice go to realise that.
+With the top end secure, tighten the cable systematically all the way through each eyelet, keeping that tension up. At the bottom, I used a screw-tightening tensioner fitting instead of a direct fastening although that's a nicety. I liked the idea of being able to tighten it up once it had settled, though. If you do, definitely make sure to loosen that to the maximum extent before you crimp the cable through, though. Only an idiot would do something like that. Luckily, I only needed once practice go to realise that.
 
 ![Cable and screw fitting](/img/posts/cable-screw-fitting.jpg)
 *Do bear in mind that this still requires tensioning before crimping to make sure that the wire is taut*
