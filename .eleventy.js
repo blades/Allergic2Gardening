@@ -210,21 +210,6 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
-  // Browsersync Overrides
-  eleventyConfig.setBrowserSyncConfig({
-    callbacks: {
-      ready: function (err, browserSync) {
-        browserSync.addMiddleware("*", (req, res) => {
-          // Provides the 404 content without redirect.
-          res.write(fs.readFileSync("_site/404.html"));
-          res.end();
-        });
-      },
-    },
-    ui: false,
-    ghostMode: false,
-  });
-
   return {
     templateFormats: ["md", "njk", "html", "liquid"],
 
