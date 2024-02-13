@@ -575,9 +575,9 @@ pre {
     line-height: 1.6;
   }
   p,
-ol,
-ul,
-pre {
+  ol,
+  ul,
+  pre {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 1.496rem;
@@ -619,9 +619,9 @@ pre {
     line-height: 1.6;
   }
   p,
-ol,
-ul,
-pre {
+  ol,
+  ul,
+  pre {
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 1.632rem;
