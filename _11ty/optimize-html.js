@@ -19,7 +19,22 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const minify = require("html-minifier").minify;
+const htmlnano = require('htmlnano');
+const htmlnanoOptions = {
+  removeEmptyAttributes: false,
+  collapseWhitespace: 'conservative',
+  collapseAttributeWhitespace: true,
+  deduplicateAttributeValues: true,
+  removeComments: safe,
+  removeAttributeQuotes: true,
+  collapseBooleanAttributes: true,
+};
+const postHtmlOptions = {
+  sync: true,
+  lowerCaseTags: true,
+  quoteAllAttributes: false,
+};
+
 const AmpOptimizer = require("@ampproject/toolbox-optimizer");
 const ampOptimizer = AmpOptimizer.create({
   blurredPlaceholders: true,
@@ -88,19 +103,14 @@ const purifyCss = async (rawContent, outputPath) => {
 const minifyHtml = (rawContent, outputPath) => {
   let content = rawContent;
   if (outputPath && outputPath.endsWith(".html") && !isAmp(content)) {
-    content = minify(content, {
-      removeAttributeQuotes: true,
-      collapseBooleanAttributes: true,
-      collapseWhitespace: true,
-      removeComments: true,
-      sortClassName: true,
-      sortAttributes: true,
-      html5: true,
-      decodeEntities: true,
-      removeOptionalTags: true,
-    });
-  }
-  return content;
+    content = htmlnano
+      .process(content, htmlnanoOptions, postHtmlOptions)
+      .then(function (result) {
+        return result.html;
+      })
+      .catch(function (err) {
+        console.error(err);
+      });
 };
 
 const optimizeAmp = async (rawContent, outputPath) => {
