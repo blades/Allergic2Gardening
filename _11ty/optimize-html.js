@@ -25,7 +25,7 @@ const htmlnanoOptions = {
   collapseWhitespace: 'conservative',
   collapseAttributeWhitespace: true,
   deduplicateAttributeValues: true,
-  removeComments: safe,
+  removeComments: 'safe',
   removeAttributeQuotes: true,
   collapseBooleanAttributes: true,
 };
@@ -34,6 +34,7 @@ const postHtmlOptions = {
   lowerCaseTags: true,
   quoteAllAttributes: false,
 };
+const ampSafePreset = require('htmlnano').presets.ampSafe;
 
 const AmpOptimizer = require("@ampproject/toolbox-optimizer");
 const ampOptimizer = AmpOptimizer.create({
@@ -104,13 +105,15 @@ const minifyHtml = (rawContent, outputPath) => {
   let content = rawContent;
   if (outputPath && outputPath.endsWith(".html") && !isAmp(content)) {
     content = htmlnano
-      .process(content, htmlnanoOptions, postHtmlOptions)
+      .process(content, htmlnanoOptions, ampSafePreset)
       .then(function (result) {
         return result.html;
       })
       .catch(function (err) {
         console.error(err);
       });
+    return content;
+  }
 };
 
 const optimizeAmp = async (rawContent, outputPath) => {
@@ -127,9 +130,9 @@ module.exports = {
     eleventyConfig.addTransform("purifyCss", purifyCss);
     eleventyConfig.addTransform("minifyHtml", minifyHtml);
     eleventyConfig.addTransform("optimizeAmp", optimizeAmp);
-  },
+  }
 };
 
 function isAmp(content) {
   return /\<html amp/i.test(content);
-}
+};
