@@ -19,8 +19,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { promisify } = require("util");
-const exists = promisify(require("fs").exists);
+const fs = require("fs/promises");
 const sharp = require("sharp");
 const sourcePath = require("./source-path");
 
@@ -42,19 +41,33 @@ const quality = {
   default: 80,
 };
 
-module.exports = async function srcset(filename, format) {
+module.exports = async function srcset(filename, format, sourceWidth) {
+  // Never upscale: drop widths wider than the source, but always keep the
+  // smallest one.
+  const usable = widths.filter((w, i) => w <= sourceWidth || i == widths.length - 1);
   const names = await Promise.all(
-    widths.map((w) => resize(filename, w, format))
+    usable.map((w) => resize(filename, w, format))
   );
   return {
-    srcset: names.map((n, i) => `${n} ${widths[i]}w`).join(", "),
+    srcset: names.map((n, i) => `${n} ${usable[i]}w`).join(", "),
     fallback: names[0],
   };
 };
 
+// True when `out` exists and is newer than `src`.
+async function upToDate(src, out) {
+  try {
+    const [s, o] = await Promise.all([fs.stat(src), fs.stat(out)]);
+    return o.mtimeMs >= s.mtimeMs;
+  } catch (e) {
+    return false;
+  }
+}
+module.exports.upToDate = upToDate;
+
 async function resize(filename, width, format) {
   const out = sizedName(filename, width, format);
-  if (await exists("_site" + out)) {
+  if (await upToDate(sourcePath(filename), "_site" + out)) {
     return out;
   }
   await sharp(sourcePath(filename))

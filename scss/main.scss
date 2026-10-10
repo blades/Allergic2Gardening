@@ -10,13 +10,6 @@
   }
 }
 
-@font-face {
-  font-family: "Inter";
-  font-weight: 100 900;
-  font-style: oblique 0deg 10deg;
-  src: url("/fonts/Inter.var.woff2") format("woff2");
-}
-
 /* vietnamese */
 @font-face {
   font-family: 'Glory';
@@ -152,10 +145,6 @@ body > header:first-child > nav > a:first-of-type {
   filter: invert(1);
 }
 
-.test-dead-code-elimination-sentinel {
-  color: red;
-}
-
 button[type=submit],
 input[type=submit] {
   background: var(--primary);
@@ -226,10 +215,6 @@ mark {
   {
     background-image: url(/img/border-autumn.png);
   }
-}
-
-.external-link {
-  height: 0.8em;
 }
 
 .menu-icon img {

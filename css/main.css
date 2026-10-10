@@ -1158,17 +1158,6 @@ article * {
   scroll-margin-top: 50px;
 }
 
-/*! purgecss start ignore */
-:root {
-  --main-width: calc(100vw - 3em);
-}
-
-@media (min-width: 37.5em) {
-  :root {
-    --main-width: calc(37.5em - 3em);
-  }
-}
-/*! purgecss end ignore */
 share-widget {
   position: fixed;
   right: 20px;
@@ -1182,10 +1171,6 @@ share-widget div {
   background-image: url("/img/share.svg");
   background-repeat: no-repeat;
   background-position: center;
-}
-
-.apple share-widget div {
-  background-image: url("/img/share-apple.svg");
 }
 
 share-widget button {
@@ -1361,12 +1346,6 @@ code[class*=language-] {
   color: green;
 }
 
-@font-face {
-  font-family: "Inter";
-  font-weight: 100 900;
-  font-style: oblique 0deg 10deg;
-  src: url("/fonts/Inter.var.woff2") format("woff2");
-}
 /* vietnamese */
 @font-face {
   font-family: "Glory";
@@ -1487,10 +1466,6 @@ body > header:first-child > nav > a:first-of-type {
   filter: invert(1);
 }
 
-.test-dead-code-elimination-sentinel {
-  color: red;
-}
-
 button[type=submit],
 input[type=submit] {
   background: var(--primary);
@@ -1554,10 +1529,6 @@ mark {
     background-image: url(/img/border-autumn.png);
   }
 }
-.external-link {
-  height: 0.8em;
-}
-
 .menu-icon img {
   height: 1.4em;
   width: 1.4em;

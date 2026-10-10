@@ -1,11 +1,30 @@
 const exposed = {};
 
-if (location.search) {
-  var a = document.createElement("a");
-  a.href = location.href;
-  a.search = "";
-  history.replaceState(null, null, a.href);
+// Google Analytics 4 (gtag.js is loaded from base.njk).
+window.dataLayer = window.dataLayer || [];
+function gtag() {
+  dataLayer.push(arguments);
 }
+gtag("js", new Date());
+gtag("config", document.documentElement.getAttribute("ga-id"));
+
+// Seasonal leaf border, picked from the visitor's date rather than the build
+// date. Seasons start on the (approximate) equinoxes and solstices.
+(function () {
+  var now = new Date();
+  var y = now.getFullYear();
+  var leap = y % 4 === 0;
+  var season = "winter";
+  [
+    ["spring", 2, leap ? 19 : 20],
+    ["summer", 5, leap ? 20 : 21],
+    ["autumn", 8, leap ? 22 : 23],
+    ["winter", 11, leap ? 20 : 21],
+  ].forEach(function (s) {
+    if (new Date(y, s[1], s[2]) <= now) season = s[0];
+  });
+  document.body.classList.add(season);
+})();
 
 function expose(name, fn) {
   exposed[name] = fn;
@@ -25,20 +44,8 @@ addEventListener("click", (e) => {
   fn(handler);
 });
 
-function tweet_(url) {
-  open(
-    "https://twitter.com/intent/tweet?url=" + encodeURIComponent(url),
-    "_blank"
-  );
-}
-function tweet(anchor) {
-  tweet_(anchor.getAttribute("href"));
-}
-expose("tweet", tweet);
-
 function share(anchor) {
   var url = anchor.getAttribute("href");
-  event.preventDefault();
   if (navigator.share) {
     navigator.share({
       url: url,
@@ -47,7 +54,7 @@ function share(anchor) {
     navigator.clipboard.writeText(url);
     message("Article URL copied to clipboard.");
   } else {
-    tweet_(url);
+    open("https://twitter.com/intent/tweet?url=" + encodeURIComponent(url), "_blank");
   }
 }
 expose("share", share);
@@ -93,7 +100,7 @@ if (window.ResizeObserver && document.getElementById("reading-progress")) {
   new ResizeObserver(() => {
     bottom =
       document.scrollingElement.scrollTop +
-      document.querySelector("#comments,footer").getBoundingClientRect().top;
+      document.querySelector("footer").getBoundingClientRect().top;
     winHeight = window.innerHeight;
     scroll();
   }).observe(document.body);

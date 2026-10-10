@@ -1,7 +1,3 @@
----
-#layout: layouts/base.njk
-templateClass: tmpl-post
----
 {% extends "layouts/base.njk" %}
 
 
@@ -12,10 +8,7 @@ templateClass: tmpl-post
      {{ wPerMinute | round }} min read.
    </aside>
    <div class="taglist">
-      {% for tag in tags %}
-        {% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-        <a href="{{ tagUrl | url }}" class="post-tag">#{{ tag }}</a>{% if not loop.last %},{% endif %}
-      {% endfor %}
+      {% include "tag-links.njk" %}
    </div>
 {% endblock %}
 
@@ -62,11 +55,11 @@ templateClass: tmpl-post
     "name": "{{ metadata.publisher.name }}",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ '/img/favicon/android-chrome-192x192.png' | addHash }}"
+      "url": "{{ metadata.url }}/img/favicon/android-chrome-192x192.png"
     }
   },
-  "url": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
-  "mainEntityOfPage": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
+  "url": "{{ metadata.url }}{{ page.url }}",
+  "mainEntityOfPage": "{{ metadata.url }}{{ page.url }}",
   "datePublished": "{{ page.date | htmlDateString }}",
   "dateModified": "{{ page.inputPath | lastModifiedDate  | htmlDateString }}",
   "description": "{{ content | striptags | truncate(140) }}"

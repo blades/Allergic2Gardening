@@ -54,39 +54,21 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
-const localImages = require("eleventy-plugin-local-images");
-const GA_ID = require("./_data/metadata.json").googleanalytics;
-const embedTwitter = require("eleventy-plugin-embed-twitter");
-const embedInstagram = require("eleventy-plugin-embed-instagram");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
 
-  eleventyConfig.addPlugin(localImages, {
-    distPath: "_site",
-    assetPath: "/img/remote",
-    selector:
-      "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
-    verbose: false,
-  });
-
   eleventyConfig.addFilter("section", require("./_11ty/section.js") );
-  eleventyConfig.addFilter("squash", require("./_11ty/squash.js") );
   eleventyConfig.addFilter("search", require("./_11ty/searchFilter"));
-  eleventyConfig.addFilter("season", require("./_11ty/season.js"));
 
   eleventyConfig.addCollection("posts", collection => {
     return [...collection.getFilteredByGlob("./posts/**/*.md")];
   });
-  eleventyConfig.addPlugin(embedInstagram);
-  eleventyConfig.addPlugin(embedTwitter);
   eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
   eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
   eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
-  eleventyConfig.setDataDeepMerge(true);
-  eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
   eleventyConfig.addNunjucksAsyncFilter("addHash", function (
     absolutePath,
     callback
@@ -143,10 +125,6 @@ module.exports = function (eleventyConfig) {
     call(promise);
   });
 
-  eleventyConfig.addFilter("encodeURIComponent", function (str) {
-    return encodeURIComponent(str);
-  });
-
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
       "dd LLL yyyy"
@@ -168,23 +146,12 @@ module.exports = function (eleventyConfig) {
     return dt.toISO();
   });
 
-  // Get the first `n` elements of a collection.
-  eleventyConfig.addFilter("head", (array, n) => {
-    if (n < 0) {
-      return array.slice(n);
-    }
-
-    return array.slice(0, n);
-  });
-
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
 
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
-  // We need to copy cached.js only if GA is used
-  eleventyConfig.addPassthroughCopy(GA_ID ? "js" : "js/*[!cached].*");
+  eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("fonts");
-  eleventyConfig.addPassthroughCopy("_headers");
 
   // We need to rebuild upon JS change 
   eleventyConfig.addWatchTarget("./js/");
@@ -205,7 +172,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   return {
-    templateFormats: ["md", "njk", "html", "liquid"],
+    templateFormats: ["md", "njk"],
 
     // If your site lives in a different subdirectory, change this.
     // Leading or trailing slashes are all normalized away, so don’t worry about those.
@@ -217,7 +184,7 @@ module.exports = function (eleventyConfig) {
     // You can also pass this in on the command line using `--pathprefix`
     // pathPrefix: "/",
 
-    markdownTemplateEngine: "liquid",
+    markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk",
 

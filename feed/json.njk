@@ -7,11 +7,10 @@ eleventyExcludeFromCollections: true
   "version": "https://jsonfeed.org/version/1",
   "title": "{{ metadata.title }}",
   "home_page_url": "{{ metadata.url }}",
-  "feed_url": "{{ metadata.jsonfeed.url }}",
+  "feed_url": "{{ metadata.jsonfeed.path | absoluteUrl(metadata.url) }}",
   "description": "{{ metadata.description }}",
   "author": {
-    "name": "{{ metadata.author.name }}",
-    "url": "{{ metadata.author.url }}"
+    "name": "{{ metadata.author.name }}"
   },
   "items": [
     {%- for post in collections.posts | reverse %}

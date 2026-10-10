@@ -27,7 +27,7 @@ const sharp = require("sharp");
 const { imageSizeFromFile: sizeOf } = require("image-size/fromFile");
 const readFile = promisify(require("fs").readFile);
 const writeFile = promisify(require("fs").writeFile);
-const exists = promisify(require("fs").exists);
+const { upToDate } = require("./srcset");
 
 const sourcePath = require("./source-path");
 
@@ -94,7 +94,7 @@ function getBitmapDimensions_(imgWidth, imgHeight) {
 module.exports = async function (src) {
   const filename = "_site/" + src;
   const cachedName = filename + ".blurred";
-  if (await exists(cachedName)) {
+  if (await upToDate(sourcePath(src), cachedName)) {
     return readFile(cachedName, {
       encoding: "utf-8",
     });

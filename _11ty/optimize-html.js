@@ -52,8 +52,7 @@ const purifyCss = async (rawContent, outputPath) => {
   let content = rawContent;
   if (
     outputPath &&
-    outputPath.endsWith(".html") &&
-    !/data-style-override/.test(content)
+    outputPath.endsWith(".html")
   ) {
     let before = require("fs").readFileSync("css/main.css", {
       encoding: "utf-8",
@@ -76,7 +75,8 @@ const purifyCss = async (rawContent, outputPath) => {
           raw: before,
         },
       ],
-      safelist: ['::-webkit-scrollbar-thumb'],
+      // Season classes are added by src/main.js at runtime.
+      safelist: ['::-webkit-scrollbar-thumb', 'winter', 'spring', 'summer', 'autumn'],
       fontFace: true,
       variables: true,
     });
@@ -89,17 +89,11 @@ const purifyCss = async (rawContent, outputPath) => {
   return content;
 };
 
-const minifyHtml = (rawContent, outputPath) => {
-  let content = rawContent;
+// Errors propagate so a minify failure fails the build instead of writing an
+// empty page.
+const minifyHtml = async (content, outputPath) => {
   if (outputPath && outputPath.endsWith(".html")) {
-    content = htmlnano
-      .process(content, htmlnanoOptions, safePreset)
-      .then(function (result) {
-        return result.html;
-      })
-      .catch(function (err) {
-        console.error(err);
-      });
+    return (await htmlnano.process(content, htmlnanoOptions, safePreset)).html;
   }
   return content;
 };

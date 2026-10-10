@@ -2,7 +2,6 @@
   "title": "Allergic to Gardening",
   "url": "https://allergictogardening.com",
   "image": "/img/a2g.png",
-  "domain": "allergictogardening.com",
   "description": "I'm basically one of the people least suited to gardening at a biological level, but I've never let that stop me before and won't this time, either.",
   "genre": "https://schema.org/Blog",
   "googleanalytics": "G-3TF6ZQCJ6L",
@@ -13,8 +12,7 @@
     "id": "https://allergictogardening.com"
   },
   "jsonfeed": {
-    "path": "/feed/feed.json",
-    "url": "https://allergictogardening/feed/feed.json"
+    "path": "/feed/feed.json"
   },
   "author": {
     "name": "Allan Jones",
