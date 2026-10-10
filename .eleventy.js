@@ -44,19 +44,17 @@ const { DateTime } = require("luxon");
 const { promisify } = require("util");
 const fs = require("fs");
 const path = require("path");
-const hasha = require("hasha");
-const touch = require("touch");
+const crypto = require("crypto");
 const readFile = promisify(fs.readFile);
 const readdir = promisify(fs.readdir);
 const stat = promisify(fs.stat);
 const execFile = promisify(require("child_process").execFile);
-const pluginRss = require("@11ty/eleventy-plugin-rss");
+const pluginRss = require("@11ty/eleventy-plugin-rss").default;
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const localImages = require("eleventy-plugin-local-images");
-const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleanalytics;
 const embedTwitter = require("eleventy-plugin-embed-twitter");
 const embedInstagram = require("eleventy-plugin-embed-instagram");
@@ -97,7 +95,7 @@ module.exports = function (eleventyConfig) {
       encoding: "utf-8",
     })
       .then((content) => {
-        return hasha.async(content);
+        return crypto.createHash("sha512").update(content).digest("hex");
       })
       .then((hash) => {
         callback(null, `${absolutePath}?hash=${hash.substr(0, 10)}`);
@@ -147,10 +145,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("encodeURIComponent", function (str) {
     return encodeURIComponent(str);
-  });
-
-  eleventyConfig.addFilter("cssmin", function (code) {
-    return new CleanCSS({}).minify(code).styles;
   });
 
   eleventyConfig.addFilter("readableDate", (dateObj) => {

@@ -40,10 +40,10 @@ module.exports = function (collection) {
   collection.forEach((page) => {
     index.addDoc({
       id: page.url,
-      title: page.template.frontMatter.data.title,
-      description: page.template.frontMatter.data.description,
-      date: page.template.frontMatter.data.date,
-      tags: page.template.frontMatter.data.tags,
+      title: page.data.title,
+      description: page.data.description,
+      date: page.data.date,
+      tags: page.data.tags,
       body: squash(page.templateContent)
     });
   });

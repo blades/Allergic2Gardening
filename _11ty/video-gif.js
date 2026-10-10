@@ -25,6 +25,7 @@ const shell = require("any-shell-escape");
 const exists = promisify(require("fs").exists);
 const exec = promisify(require("child_process").exec);
 const pathToFfmpeg = require("ffmpeg-static");
+const sourcePath = require("./source-path");
 
 exports.gif2mp4 = async function (filename) {
   const dest = mp4Name(filename);
@@ -39,7 +40,7 @@ exports.gif2mp4 = async function (filename) {
     "-v",
     "error",
     "-i",
-    join("_site", filename),
+    sourcePath(filename),
     "-filter_complex",
     "[0:v] fps=15, scale=iw:-2",
     "-vsync",

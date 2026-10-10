@@ -1,3 +1,15 @@
+// Bahunya 2 is plain CSS; site-specific theming is layered on top via its
+// custom properties.
+@use "vendor/bahunya";
+@use "lazy-raster";
+@use "prism";
+
+@mixin for-tablet-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+
 @font-face {
   font-family: "Inter";
   font-weight: 100 900;
@@ -33,41 +45,124 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-html { font-family: 'Glory', sans-serif; }
-@supports (font-variation-settings: normal) {
-  html { font-family: 'Glory', sans-serif; }
+:root {
+  --sans-serif: 'Glory', sans-serif;
+  --monospace: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+  --background-body: #181818;
+
+  --primary: #7cc442;
+  --primary-dark: #4c7927;
+
+  --links: var(--primary);
+  --focus: var(--primary);
+  --focus-background: rgba(124, 196, 66, 0.18);
+  --selection: var(--primary-dark);
 }
 
-// fonts
-$serif: 'Glory', sans-serif;
-$sans-serif: 'Glory', sans-serif;
-$monospace: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+// The page header keeps the site's original centred title block rather than
+// Bahunya's left-aligned one.
+body > header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border-bright);
+}
 
-@import "lazy-raster";
-@import "bahunya/main";
+body > header > h1 {
+  font-size: clamp(2.25rem, 1.75rem + 2.5vw, 3.5rem);
+  margin-top: var(--space-6);
+}
 
-h1, h2, h3, h4, h5, h6 { font-family: Glory, sans-serif; }
-@supports (font-variation-settings: normal) {
-  h1, h2, h3, h4, h5, h6 { font-family: Glory, sans-serif; }
+body > header aside {
+  float: none;
+  width: auto;
+  margin: 0 0 var(--space-2);
+  padding: 0;
+  background: none;
+  border: 0;
+  font-style: italic;
+}
+
+body > header .taglist {
+  display: inline-block;
+}
+
+// Glory is a light display face, so lift heading sizes above Bahunya's
+// compact scale.
+h2 {
+  font-size: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem);
+}
+
+// Glory runs small, so scale the root size up to match the original shevy
+// body sizes (1rem phone, 1.1rem tablet, 1.2rem desktop). Bahunya sizes
+// everything in rem, so this lifts text, nav and spacing together.
+html {
+  font-size: 100%;
+
+  @media (min-width: 600px) {
+    font-size: 110%;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 120%;
+  }
+}
+
+body {
+  line-height: 1.6;
+}
+
+// Bahunya's pinned navbar is near-black, which hides the seasonal leaf
+// border at the top of the page. Paint it with the page's own fixed
+// background instead: the leaves line up exactly, so the bar looks
+// see-through while still covering text that scrolls beneath it. The
+// header is the nav's parent, so it has to pass the background down too.
+body > header:first-child,
+body > header:first-child > nav {
+  background-color: var(--background-body);
+  background-image: inherit;
+  background-repeat: inherit;
+  background-position: inherit;
+  background-attachment: inherit;
+  background-size: inherit;
+  background-blend-mode: inherit;
+}
+
+body > header:first-child > nav {
+  border-bottom: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body > header:first-child > nav a {
+  font-size: 1em;
+}
+
+body > header:first-child > nav > a:first-of-type {
+  font-size: 1.15em;
+}
+
+// The social icons are black SVGs on a dark page.
+.menu-icon img {
+  filter: invert(1);
 }
 
 .test-dead-code-elimination-sentinel {
   color: red;
 }
 
-:root {
-  --primary: #7cc442;
-  --primary-dark: #4c7927;
-}
-
-input[type=submit],
 button[type=submit],
-button:not([disabled]) {
+input[type=submit] {
   background: var(--primary);
+  color: var(--accent-contrast);
 }
-input[type=submit]:hover,
 button[type=submit]:hover,
-button:not([disabled]):hover {
+input[type=submit]:hover {
   background: var(--primary-dark);
 }
 
@@ -75,17 +170,19 @@ dd + dt {
   border-top: 1px solid var(--primary);
 }
 
-blockquote, .taglist {
+blockquote {
+  border-left-color: var(--primary);
+}
+
+.taglist {
   border-left: 1px solid var(--primary);
   border-right: 1px solid var(--primary);
+  padding: 0 var(--space-4);
+  margin: var(--space-4) 0;
 }
 
 mark {
   background: var(--primary);
-}
-
-a {
-  color: var(--primary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -138,19 +235,9 @@ a {
 .menu-icon img {
   height: 1.4em;
   width: 1.4em;
-  position: relative;
-  top: 0.3em;
+  margin: 0;
 }
 
-header nav a {
-  margin-left:0.5em;
-}
-
-header nav h1 {
-  position:relative;
-  top:0.3em;
-}
-
-header nav a:last-of-type {
-  margin-right: 0.5em;
+body > header:first-child > nav .menu-icon {
+  padding: 0 var(--space-2);
 }

@@ -24,12 +24,12 @@
 
 const { promisify } = require("util");
 const sharp = require("sharp");
-const sizeOf = promisify(require("image-size"));
-const DatauriParser = require("datauri/parser");
-const parser = new DatauriParser();
+const { imageSizeFromFile: sizeOf } = require("image-size/fromFile");
 const readFile = promisify(require("fs").readFile);
 const writeFile = promisify(require("fs").writeFile);
 const exists = promisify(require("fs").exists);
+
+const sourcePath = require("./source-path");
 
 const PIXEL_TARGET = 60;
 
@@ -64,7 +64,7 @@ async function getDataURI(src) {
     .png()
     .toBuffer();
   const result = {
-    src: parser.format(".png", buffer).content,
+    src: `data:image/png;base64,${buffer.toString("base64")}`,
     width: info.width,
     height: info.height,
   };
@@ -100,7 +100,7 @@ module.exports = async function (src) {
     });
   }
   // We wrap the blurred image in a SVG to avoid rasterizing the filter on each layout.
-  const dataURI = await getCachedDataURI(filename);
+  const dataURI = await getCachedDataURI(sourcePath(src));
   let svg = `<svg xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                   viewBox="0 0 ${dataURI.width} ${dataURI.height}">

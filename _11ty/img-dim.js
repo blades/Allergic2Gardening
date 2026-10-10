@@ -21,10 +21,11 @@
 
 const { JSDOM } = require("jsdom");
 const { promisify } = require("util");
-const sizeOf = promisify(require("image-size"));
+const { imageSizeFromFile: sizeOf } = require("image-size/fromFile");
 const blurryPlaceholder = require("./blurry-placeholder");
 const srcset = require("./srcset");
 const path = require("path");
+const sourcePath = require("./source-path");
 const { gif2mp4 } = require("./video-gif");
 
 /**
@@ -50,7 +51,7 @@ const processImage = async (img, outputPath) => {
   }
   let dimensions;
   try {
-    dimensions = await sizeOf("_site/" + src);
+    dimensions = await sizeOf(sourcePath(src));
   } catch (e) {
     console.warn(e.message, src);
     return;

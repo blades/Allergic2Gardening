@@ -61,7 +61,7 @@ function message(msg) {
   }, 3000);
 }
 
-if (window.ResizeObserver && document.querySelector("header nav #nav")) {
+if (window.ResizeObserver && document.getElementById("reading-progress")) {
   var progress = document.getElementById("reading-progress");
 
   var timeOfLastScroll = 0;

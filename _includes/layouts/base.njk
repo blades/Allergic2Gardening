@@ -50,15 +50,13 @@
   </head>
   <body class="{{ now | season }}">
     <header>
-      <nav>
-        <div id="nav">
-          <h1><a href="{{ '/' | url }}" title="Homepage">{{ metadata.title }}</a></h1>
-          {%- for entry in collections.all | eleventyNavigation %}
-            <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-          {%- endfor %}
-          <a class="menu-icon" href="https://twitter.com/{{ metadata.author.twitter }}" target="_blank" rel="noopener"><img src="/img/twitter.svg" alt="twitter icon"/></a>
-          <a class="menu-icon" href="https://instagram.com/{{ metadata.author.instagram }}" target="_blank" rel="noopener"><img src="/img/instagram.svg" alt="instagram icon"/></a>
-        </div>
+      <nav aria-label="Primary">
+        <a href="{{ '/' | url }}" title="Homepage">{{ metadata.title }}</a>
+        {%- for entry in collections.all | eleventyNavigation %}
+          <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+        {%- endfor %}
+        <a class="menu-icon" href="https://twitter.com/{{ metadata.author.twitter }}" target="_blank" rel="noopener"><img src="/img/twitter.svg" alt="twitter icon"/></a>
+        <a class="menu-icon" href="https://instagram.com/{{ metadata.author.instagram }}" target="_blank" rel="noopener"><img src="/img/instagram.svg" alt="instagram icon"/></a>
         <div id="reading-progress" aria-hidden="true"></div>
       </nav>
       <h1>{{ title }}</h1>

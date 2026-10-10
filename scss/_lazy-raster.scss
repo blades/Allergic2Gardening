@@ -14,12 +14,6 @@
     scroll-margin-top: 50px;
   }
   
-  /* "Content-visibility: auto" move the images over the other elements
-     Set z-index to keep the nav over the rasterized images */
-  header nav {
-    z-index: 1;
-  }
-  
   /*! purgecss start ignore */
   :root {
     --main-width: calc(100vw - 3em);
@@ -82,19 +76,14 @@
     font-style: italic;
   }
   
-  #nav {
-    z-index: 2;
-    position: relative;
-  }
-  
+  /* Thin progress bar along the bottom edge of Bahunya's fixed navbar. */
   #reading-progress {
-    z-index: 1;
     background-color: var(--primary);
     width: 100vw;
+    height: 3px;
     position: absolute;
     left: 0;
-    top: 0;
-    bottom: 0;
+    bottom: -1px;
     transform: translate(-100vw, 0);
     will-change: transform;
     pointer-events: none;

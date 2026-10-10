@@ -28,20 +28,16 @@ const htmlnanoOptions = {
   removeComments: 'safe',
   removeAttributeQuotes: true,
   collapseBooleanAttributes: true,
+  // CSS is already minified by csso in purifyCss; inline SVGs are hand-written.
+  minifyCss: false,
+  minifySvg: false,
 };
 const postHtmlOptions = {
   sync: true,
   lowerCaseTags: true,
   quoteAllAttributes: false,
 };
-const ampSafePreset = require('htmlnano').presets.ampSafe;
-
-const AmpOptimizer = require("@ampproject/toolbox-optimizer");
-const ampOptimizer = AmpOptimizer.create({
-  blurredPlaceholders: true,
-  imageBasePath: "./_site/",
-  //verbose: true,
-});
+const safePreset = require('htmlnano').presets.safe;
 const PurgeCSS = require("purgecss").PurgeCSS;
 const csso = require("csso");
 
@@ -50,7 +46,6 @@ const csso = require("csso");
  * Makes font display display-optional
  * Minifies and optimizes the JS
  * Optimizes HTML
- * Optimizes AMP
  */
 
 const purifyCss = async (rawContent, outputPath) => {
@@ -58,7 +53,6 @@ const purifyCss = async (rawContent, outputPath) => {
   if (
     outputPath &&
     outputPath.endsWith(".html") &&
-    !isAmp(content) &&
     !/data-style-override/.test(content)
   ) {
     let before = require("fs").readFileSync("css/main.css", {
@@ -82,12 +76,6 @@ const purifyCss = async (rawContent, outputPath) => {
           raw: before,
         },
       ],
-      /*extractors: [
-        {
-          extractor: require("purge-from-html").extract,
-          extensions: ["html"],
-        },
-      ],*/
       safelist: ['::-webkit-scrollbar-thumb'],
       fontFace: true,
       variables: true,
@@ -103,23 +91,15 @@ const purifyCss = async (rawContent, outputPath) => {
 
 const minifyHtml = (rawContent, outputPath) => {
   let content = rawContent;
-  if (outputPath && outputPath.endsWith(".html") && !isAmp(content)) {
+  if (outputPath && outputPath.endsWith(".html")) {
     content = htmlnano
-      .process(content, htmlnanoOptions, ampSafePreset)
+      .process(content, htmlnanoOptions, safePreset)
       .then(function (result) {
         return result.html;
       })
       .catch(function (err) {
         console.error(err);
       });
-    return content;
-  }
-};
-
-const optimizeAmp = async (rawContent, outputPath) => {
-  let content = rawContent;
-  if (outputPath && outputPath.endsWith(".html") && isAmp(content)) {
-    content = await ampOptimizer.transformHtml(content);
   }
   return content;
 };
@@ -129,10 +109,5 @@ module.exports = {
   configFunction: async (eleventyConfig, pluginOptions = {}) => {
     eleventyConfig.addTransform("purifyCss", purifyCss);
     eleventyConfig.addTransform("minifyHtml", minifyHtml);
-    eleventyConfig.addTransform("optimizeAmp", optimizeAmp);
   }
-};
-
-function isAmp(content) {
-  return /\<html amp/i.test(content);
 };

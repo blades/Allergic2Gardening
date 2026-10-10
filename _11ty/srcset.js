@@ -22,6 +22,7 @@
 const { promisify } = require("util");
 const exists = promisify(require("fs").exists);
 const sharp = require("sharp");
+const sourcePath = require("./source-path");
 
 /**
  * Generates sensible sizes for each image for use in a srcset.
@@ -56,12 +57,12 @@ async function resize(filename, width, format) {
   if (await exists("_site" + out)) {
     return out;
   }
-  await sharp("_site" + filename)
+  await sharp(sourcePath(filename))
     .rotate() // Manifest rotation from metadata
     .resize(width)
     [format]({
       quality: quality[format] || quality.default,
-      reductionEffort: 6,
+      effort: 6,
     })
     .toFile("_site" + out);
 
